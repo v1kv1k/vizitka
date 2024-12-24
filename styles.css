@@ -19,18 +19,6 @@ body {
     min-height: 100vh;
 }
 
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    width: 0; /* Початкова ширина 0 */
-    background: linear-gradient(90deg, #2c3e50, #3498db);
-    z-index: 1000;
-    transition: width 0.2s ease;
-    pointer-events: none; /* Щоб елемент не впливав на взаємодію */
-}
-
 .hero {
     height: 100vh;
     display: flex;
@@ -570,14 +558,14 @@ h1 {
     }
 }
 
-/* Додаємо плавний с��рол */
+/* Додаємо плавний скрол */
 html {
     scroll-behavior: smooth;
 }
 
 /* Анімація для заголовків */
 h1, h2, h3 {
-    animation: slideInFromLeft 1s ease forwards;
+    animation: slideInFromLeft 1s easeА forwards;
 }
 
 /* Ефект світіння для аватара */
@@ -604,5 +592,28 @@ h1, h2, h3 {
 [data-aos].aos-animate {
     opacity: 1;
     transform: translateY(0);
+}
+/* Маленькі мобільні пристрої */
+@media (max-width: 480px) {
+    .tags {
+        gap: 0.5rem;
+    }
+
+    .tag {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline-content {
+        padding: 1rem;
+    }
+
+    .timeline-content h4 {
+        font-size: 1.1rem;
+    }
 }
 
