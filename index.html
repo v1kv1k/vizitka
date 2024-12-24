@@ -2,117 +2,113 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Віктор Герасименко | Візитка</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viktor Herasymenko • Junior Full-Stack Developer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
-    <section class="hero">
-        <div class="card">
-            <div class="profile-header">
-                <div class="profile-image">
-                    <!-- Замініть URL на свою картинку -->
-                    <img src="https://cdn.discordapp.com/attachments/857770701623787551/1321176988190376028/QWDQWD.png?ex=676c4974&is=676af7f4&hm=f576d829ac5313ee6fd1aaad47cc6da54ab099f28a8048d8adab064a3c3e31e3&" alt="Віктор Герасименко">
-                </div>
-                <div class="avatar">👨‍💻</div>
-            </div>
-            <div class="name-title">
-                <h1>Віктор Герасименко</h1>
-                <p class="subtitle">Junior Developer</p>
-            </div>
-            <div class="info">
-                <p>🎂 1 липня 2007</p>
-                <p>🌍 Україна</p>
-                <p>✨ Молодий та амбітний</p>
-            </div>
-            <div class="tags">
-                <span class="tag">🚀 Розробник</span>
-                <span class="tag">💡 Креативний</span>
-                <span class="tag">🌟 Енергійний</span>
-            </div>
+    <header class="header">
+        <div class="header-content">
+            <span class="emoji">👋</span>
+            <h1>Viktor Herasymenko</h1>
+            <h2>Junior Full-Stack Developer</h2>
+            <p>
+                17-річний розробник з України 🇺🇦 
+                Створюю сучасні веб-додатки та постійно вдосконалюю свої навички ✨
+            </p>
+            <button class="accent-button" onclick="location.href='#contact'">
+                Зв'язатися 🚀
+            </button>
         </div>
-    </section>
+    </header>
 
-    <section class="skills">
-        <h2>Технології та навички</h2>
-        
-        <div class="tech-container">
-            <div class="tech-category" data-aos="fade-up">
-                <h3>🎨 Front-end Core</h3>
-                <div class="tech-grid">
-                    <span class="tech-item">HTML5</span>
-                    <span class="tech-item">CSS3</span>
-                    <span class="tech-item">JavaScript</span>
-                    <span class="tech-item">TypeScript</span>
-                    <span class="tech-item">React</span>
-                    <span class="tech-item">Redux</span>
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Технічний арсенал 💻</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Front-end 🎨</h3>
+                    <div class="skill-category">
+                        <h4>Технології</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">SCSS</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">ES6</span>
+                            <span class="skill-tag">Promises</span>
+                            <span class="skill-tag">async/await</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Фреймворки</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">Redux</span>
+                            <span class="skill-tag">Material UI</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-    
-            <div class="tech-category" data-aos="fade-up" data-aos-delay="100">
-                <h3>🛠️ Інструменти</h3>
-                <div class="tech-grid">
-                    <span class="tech-item">Git</span>
-                    <span class="tech-item">Webpack</span>
-                    <span class="tech-item">NPM</span>
-                    <span class="tech-item">Gulp</span>
-                    <span class="tech-item">Docker</span>
+
+                <div class="skill-card">
+                    <h3>Back-end ⚙️</h3>
+                    <div class="skill-category">
+                        <h4>Node.js</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Express.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">REST API</span>
+                            <span class="skill-tag">JWT</span>
+                            <span class="skill-tag">WebSockets</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Інструменти</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">npm</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-    
-            <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
-                <h3>🎯 Спеціалізація</h3>
-                <div class="tech-grid">
-                    <span class="tech-item">Responsive</span>
-                    <span class="tech-item">REST API</span>
-                    <span class="tech-item">Unit Testing</span>
-                    <span class="tech-item">OOP</span>
-                </div>
-            </div>
-    
-            <div class="tech-category" data-aos="fade-up" data-aos-delay="300">
-                <h3>🎮 Дизайн</h3>
-                <div class="tech-grid">
-                    <span class="tech-item">Figma</span>
-                    <span class="tech-item">Photoshop</span>
-                    <span class="tech-item">Blender</span>
-                </div>
-            </div>
-        </div>
-    
-        <div class="experience-timeline">
-            <h3>Детальні навички</h3>
-            <div class="timeline-item" data-aos="fade-right">
-                <div class="timeline-content">
-                    <h4>Front-end Development</h4>
-                    <ul>
-                        <li>HTML5, CSS3, SCSS, Bootstrap</li>
-                        <li>JavaScript (ES6+), TypeScript</li>
-                        <li>React + Redux Ecosystem</li>
-                        <li>Next.js, Material UI</li>
-                    </ul>
-                </div>
-            </div>
-    
-            <div class="timeline-item" data-aos="fade-left">
-                <div class="timeline-content">
-                    <h4>Back-end Knowledge</h4>
-                    <ul>
-                        <li>Node.js основи</li>
-                        <li>Express.js, REST API</li>
-                        <li>MongoDB базові знання</li>
-                        <li>Docker базові знання</li>
-                    </ul>
+
+                <div class="skill-card">
+                    <h3>Додаткові навички 🎯</h3>
+                    <div class="skill-category">
+                        <h4>Дизайн</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Photoshop</span>
+                            <span class="skill-tag">Blender</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Тестування</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Jest</span>
+                            <span class="skill-tag">Unit Testing</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Розпочнімо проект разом ✨</h2>
+            <p>Відкритий до цікавих пропозицій та нових викликів 🎯</p>
+            <a href="https://t.me/vitcore88" class="accent-button">
+                Написати в Telegram 📱
+            </a>
+        </div>
+    </section>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
-</html> 
+</html>
