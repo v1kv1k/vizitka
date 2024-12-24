@@ -603,3 +603,746 @@ h1, h2, h3 {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Мобільна адаптація */
+@media (max-width: 768px) {
+    .card {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .profile-image {
+        height: 150px;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        bottom: -30px;
+        font-size: 2rem;
+    }
+
+    .name-title {
+        margin-top: 2.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .info {
+        font-size: 1rem;
+    }
+
+    .tags {
+        gap: 0.3rem;
+    }
+
+    .tag {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .skills {
+        padding: 2rem 1rem;
+    }
+
+    .tech-container {
+        margin: 2rem auto;
+    }
+
+    .tech-category {
+        padding: 1.5rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 0.8rem;
+    }
+
+    .tech-item {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .experience-timeline {
+        margin: 2rem auto;
+    }
+
+    .timeline-item {
+        margin-bottom: 2rem;
+        padding-left: 1.5rem;
+    }
+
+    .timeline-content {
+        padding: 1.5rem;
+    }
+
+    .timeline-content h4 {
+        font-size: 1.1rem;
+    }
+
+    .timeline-content li {
+        font-size: 0.9rem;
+        padding-left: 1.2rem;
+    }
+}
+
+/* Додаткові стилі для дуже малих екранів */
+@media (max-width: 480px) {
+    .card {
+        padding: 1rem;
+    }
+
+    .profile-image {
+        height: 120px;
+    }
+
+    .avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+        bottom: -25px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 8px;
+        font-size: 1rem;
+    }
+}
+
+/* Оптимізація для ландшафтної орієнтації */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+
+    .profile-image {
+        height: 120px;
+    }
+
+    .card {
+        margin: 2rem auto;
+    }
+}
+@import url('https://unpkg.com/aos@next/dist/aos.css');
+
+:root {
+    --gradient-1: #2c3e50;
+    --gradient-2: #3498db;
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme="blackandwhite"] {
+    --gradient-1: #cccccc;
+    --gradient-2: #666666;
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+    background: linear-gradient(120deg, var(--gradient-1) 0%, var(--gradient-2) 100%);
+    min-height: 100vh;
+}
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2c3e50, #3498db);
+    z-index: 1000;
+    transition: width 0.2s ease;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(31, 38, 135, 0.2);
+}
+
+.profile-header {
+    position: relative;
+    margin: -2rem -2rem 2rem -2rem;
+}
+
+.profile-image {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(120deg, #2c3e50, #3498db);
+    position: relative;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover img {
+    transform: scale(1.05);
+}
+
+.profile-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    to {
+        left: 200%;
+    }
+}
+
+.avatar {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+    border-radius: 50%;
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+    animation: pulse 2s infinite;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.name-title {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(120deg, #2c3e50, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.info {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 1.5rem 0;
+    line-height: 1.8;
+}
+.info p {
+    margin: 0.7rem 0;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.tag {
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: linear-gradient(120deg, #2c3e50, #3498db);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    display: inline-block;
+    animation: fadeIn 1s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: popIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: scale(0);
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.skills {
+    padding: 4rem 2rem;
+    background: var(--card-bg);
+    min-height: 100vh;
+}
+
+.skill-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    perspective: 1000px;
+}
+
+.skill-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.skill-card:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.skill-bar {
+    background: #eee;
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #2c3e50, #3498db);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: progressAnimation 1s ease forwards;
+}
+
+@keyframes progressAnimation {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Додаємо медіа-запити для адаптивності */
+@media (max-width: 768px) {
+    .skill-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tech-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.tech-category {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tech-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(120deg, #2c3e50, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.tech-item {
+    background: linear-gradient(120deg, #2c3e50, #3498db, #2c3e50);
+    padding: 0.8rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(120deg, #2c3e50, #3498db);
+    color: white;
+}
+
+.experience-timeline {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+.experience-timeline h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(120deg, #2c3e50, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, #2c3e50, #3498db);
+}
+
+.timeline-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h4 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-content li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.timeline-content li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+    .tech-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    
+    .timeline-item {
+        padding-left: 1rem;
+    }
+}
+
+/* Добавляем стили для переключателя */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+}
+
+/* Модифицируем существующие градиентные элементы */
+[data-theme="blackandwhite"] .card,
+[data-theme="blackandwhite"] .skill-card,
+[data-theme="blackandwhite"] .tech-item,
+[data-theme="blackandwhite"] .timeline-content {
+    filter: grayscale(100%);
+}
+
+[data-theme="blackandwhite"] .profile-image,
+[data-theme="blackandwhite"] .avatar,
+[data-theme="blackandwhite"] h1,
+[data-theme="blackandwhite"] .tag,
+[data-theme="blackandwhite"] .tech-category h3 {
+    filter: grayscale(100%);
+}
+
+[data-theme="blackandwhite"] img {
+    filter: grayscale(100%);
+}
+
+/* Додаємо нові keyframes анімації */
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes glowingGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Оновлюємо існуючі стилі */
+.card {
+    animation: float 6s ease-in-out infinite;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(31, 38, 135, 0.2);
+}
+
+.profile-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    to {
+        left: 200%;
+    }
+}
+
+.tech-item {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(120deg, #2c3e50, #3498db, #2c3e50);
+    background-size: 200% 200%;
+    animation: glowingGradient 15s ease infinite;
+    color: white;
+}
+
+.tech-item:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tech-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: 0.6s;
+}
+
+.tech-item:hover::before {
+    transform: translateX(100%);
+}
+
+.timeline-item {
+    transition: all 0.5s ease;
+}
+
+.timeline-item:hover {
+    transform: scale(1.02);
+}
+
+.timeline-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, #2c3e50, #3498db);
+    animation: heightGrow 1s ease forwards;
+}
+
+@keyframes heightGrow {
+    from { height: 0; }
+    to { height: 100%; }
+}
+
+/* Додаємо нові анімовані елементи */
+.skill-cards {
+    perspective: 1000px;
+}
+
+.skill-card {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.skill-card:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* Анімація для прогрес-барів */
+.skill-progress {
+    position: relative;
+    animation: progressGrow 1.5s ease forwards;
+}
+
+@keyframes progressGrow {
+    from { width: 0; }
+}
+
+/* Анімація для тегів */
+.tag {
+    animation: popIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: scale(0);
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Додаємо плавний скрол */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Анімація для заголовків */
+h1, h2, h3 {
+    animation: slideInFromLeft 1s ease forwards;
+}
+
+/* Ефект світіння для аватара */
+.avatar {
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px -10px #2c3e50;
+    }
+    to {
+        box-shadow: 0 0 20px 5px #3498db;
+    }
+}
+
+/* Анімація для всього контенту при скролі */
+[data-aos] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
